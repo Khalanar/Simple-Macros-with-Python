@@ -3,7 +3,7 @@ from pynput.keyboard import Key, Listener
 import pyautogui
 
 replacements = {"myname": "Firstname Lastname",
-                "mymail": "abcd@efg.com",
+                "mymail": "abc@def.com",
                }
 
 def on_press(key):
@@ -23,10 +23,11 @@ def on_press(key):
             candidate_keyword = ""
             candidate_keyword = candidate_keyword.join(typed_keys)
             if candidate_keyword != "":
-                    if candidate_keyword in replacements.keys():
-                        pyautogui.press('backspace', presses=len(candidate_keyword)+2)
-                        pyautogui.typewrite(replacements[candidate_keyword])
-                        listening = False
+                if candidate_keyword in replacements.keys():
+                    pyautogui.press('backspace', presses=len(candidate_keyword)+2)
+                    pyautogui.typewrite(replacements[candidate_keyword])
+                    listening = False
+
 
 macro_starter = '#'
 macro_ender = Key.space
